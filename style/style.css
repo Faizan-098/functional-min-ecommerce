@@ -34,7 +34,7 @@
          align-items: center;
   height: 70px;
 max-width: 1200px;
-padding-left: 3rem;
+padding-inline: 3rem;
 padding-block: 1rem;
 
     }
@@ -292,9 +292,14 @@ margin-top: 0.5rem;
   html{
     font-size: 0.5rem;
   }
+  .navbar{
+    border-radius: 4rem;
+      width: 98%;
+  }
   header{
     justify-content: center;
     gap: 0.8rem;
+
    
   }
     .hero-section{
