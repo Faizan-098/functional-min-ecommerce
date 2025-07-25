@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<style>
+  .product-info-card {
+  max-width: 1000px;
+  width: 100%;
+  margin: 100px auto 20px;
+  display: flex;
+  gap: 20px;
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.img-container {
+  flex: 1 1 300px;
+  max-width: 300px;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.detail {
+  flex: 2 1 600px;
+  color: white;
+}
+
+.detail h3 {
+  font-size: 26px;
+  color: lightblue;
+  margin-bottom: 10px;
+}
+
+.detail p {
+  font-size: 18px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.detail h4.price {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #ffd700;
+}
+
+.detail .star-container {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.go-to-cart {
+  padding: 12px 24px;
+  background-color: lightblue;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.go-to-cart:hover {
+  background-color: rgb(160, 213, 231);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-info-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container,
+  .detail {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .detail {
+    text-align: center;
+  }
+
+  .go-to-cart {
+    width: 80%;
+  }
+}
+
+</style>
+<body>
+
+     <!-- This is Our Navbar -->
+   <section class="navbar">
+<header>
+    <div class="logo-brand">
+<h1>ShopEase Store</h1>
+</div>
+ <nav>
+        <ul>
+         <li><a href="../index.html">Home</a></li>
+         <li><a href="./products.html">Products </a></li>
+         <li><a href="./mycart.html">My Cart </a></li>
+         <li><a href="./login.html">login </a></li>
+        <li><a href="./profile.html">Profile </a></li>
+       </ul>
+    </nav>
+</header>
+
+   </section>
+  <!-- Product section -->
+<div class="product-detail">
+  <div class="product-info-card">
+    <div class="img-container"> <!-- Fixed spelling here -->
+      <img src="../images/item12.png" alt="">
+    </div>
+    <div class="detail">
+      <h3>hafiz faizan</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste ipsa fugit obcaecati atque sunt perferendis accusantium, itaque iusto facere dolorem maiores corrupti? Nulla explicabo ut voluptatum est similique facere doloremque, soluta eos velit officiis debitis illum in fugit corporis.</p>
+      <h4 class="price">Price: 500$/-</h4>
+      <h3 class="star-container"> <span class="stars">★★★★</span>&nbsp; 4.45</h3>
+      <button class="go-to-cart" onclick=" return window.location.href='./products.html'">Go To Cart</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+
+    <section class="footer-section">
+         <footer>
+      
+      <div class="copy-right">
+        <p>© 2025 ShopEase Store. All rights reserved.</p>
+      </div>
+     </footer>
+    </section>
+<script src="../js/product-detail.js"></script>
+
+</body>
+</html>

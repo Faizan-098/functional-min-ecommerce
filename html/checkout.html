@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style/style.css">
+ 
+</head>
+<body>
+
+     <!-- This is Our Navbar -->
+   <section class="navbar">
+<header>
+    <div class="logo-brand">
+<h1>ShopEase Store</h1>
+</div>
+ <nav>
+         <ul>
+         <li><a href="../index.html">Home</a></li>
+         <li><a href="./products.html">Products </a></li>
+         <li><a href="./mycart.html">My Cart </a></li>
+         <li><a href="./login.html">login </a></li>
+        <li><a href="./profile.html">Profile </a></li>
+       </ul>
+    </nav>
+</header>
+
+   </section>
+  <!-- main -->
+    <div class="checkout-container">
+      
+  <form class="form-container" onsubmit="submitOrder(event)">
+    <h1>Checkout</h1>
+    <input type="email" placeholder="email" required>
+    <input type="text" placeholder="Address" required>
+    <input type="text" placeholder="Phone" required>
+    <button type="submit" class="submit">Confirm Order</button>
+  </form>
+    </div>
+  <script>
+    function submitOrder(e) {
+      e.preventDefault();
+localStorage.removeItem('savedDataId')
+      alert("Order placed successfully!");
+      window.location.href = "../index.html";
+    }
+  </script>
+  
+
+</body>
+</html>
