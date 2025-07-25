@@ -212,8 +212,7 @@ opacity: 0.6;
   display: flex;
   gap: 5px;
 }
-.card-des button{
-  text-decoration: none;
+.btn-container button {
     width: 100%;
     border: none;
      background: #000;
@@ -224,7 +223,9 @@ font-size: 1.8rem;
 margin-top: 1.5rem;
 cursor: pointer;
 }
-
+.btn-container a{
+   width: 100%;
+}
 
 /* footer */
 

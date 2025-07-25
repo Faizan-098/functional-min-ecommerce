@@ -1,4 +1,4 @@
-const products = [
+ const products = [
   {
     id:1,
     name: "Meat Grinder",
@@ -77,8 +77,12 @@ products.forEach((item)=>{
                 <p>${item.description}</p>
                 <h3 class="star-container"> <span class="stars">★★★★</span>&nbsp; ${item.rating}</h3>
                 <h4 class="price">Price: Rs.${item.price}/-</h4>
-                <div class="btn-container">
-                <button id="addToCart" onclick="getAddToCartId(${item.id})"}>Add To Cart</button>
+              <div class="btn-container">
+     <button id="addToCart" onclick="getAddToCartId(${item.id})"}>Add To Cart</button>
+     <a href="./productDetailPage.html?id=${item.id}"><button id="addToCart" >View more</button></a>
+</div>
+
+               .
 
             </div>
         </div>`

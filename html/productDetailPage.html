@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="../style/style.css">
 </head>
 <style>
+  .product-detail{
+    padding-inline: 10px;
+  }
   .product-info-card {
   max-width: 1000px;
   width: 100%;
@@ -17,19 +20,23 @@
   padding: 20px;
   border-radius: 10px;
   align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .img-container {
-  flex: 1 1 300px;
-  max-width: 300px;
+  width: 300px;
+  height: 320px;
+  flex-grow: 1;
 }
 
 .img-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 8px;
+  object-fit: cover;
   display: block;
+  object-position: top;
 }
 
 .detail {
@@ -77,6 +84,7 @@
   background-color: rgb(160, 213, 231);
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .product-info-card {
@@ -84,7 +92,9 @@
     align-items: center;
   }
 
-  .img-container,
+.img-container{
+  width: 100%;
+}
   .detail {
     max-width: 100%;
     flex: 1 1 100%;
@@ -95,8 +105,13 @@
   }
 
   .go-to-cart {
-    width: 80%;
+    width: 100%;
   }
+}
+.copy-right{
+position: fixed;
+bottom: 0;
+width: 100%;
 }
 
 </style>
@@ -122,18 +137,7 @@
    </section>
   <!-- Product section -->
 <div class="product-detail">
-  <div class="product-info-card">
-    <div class="img-container"> <!-- Fixed spelling here -->
-      <img src="../images/item12.png" alt="">
-    </div>
-    <div class="detail">
-      <h3>hafiz faizan</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste ipsa fugit obcaecati atque sunt perferendis accusantium, itaque iusto facere dolorem maiores corrupti? Nulla explicabo ut voluptatum est similique facere doloremque, soluta eos velit officiis debitis illum in fugit corporis.</p>
-      <h4 class="price">Price: 500$/-</h4>
-      <h3 class="star-container"> <span class="stars">★★★★</span>&nbsp; 4.45</h3>
-      <button class="go-to-cart" onclick=" return window.location.href='./products.html'">Go To Cart</button>
-    </div>
-  </div>
+  
 </div>
 
 <!-- Footer -->
@@ -146,7 +150,7 @@
       </div>
      </footer>
     </section>
-<script src="../js/product-detail.js"></script>
+<script  src="../js/product-detail.js"></script>
 
 </body>
 </html>
