@@ -6,16 +6,38 @@
 
     <title>Home - E-commerce Store</title>
     <link rel="stylesheet" href="./style/style.css">
-
-   <style>
-    
-   </style>
+    <style>
+         header{
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid white
+    }
+    </style>
 </head>
 <body>
+<!-- mobile side bar -->
+<div class="side-bar">
+ 
+      <nav>
+           <span class="cross-icon"><svg data-prefix="far" data-icon="xmark" role="img" viewBox="0 0 384 512" aria-hidden="true" class="initial-icon svg-inline--fa fa-xmark fa-xl"><path fill="currentColor" d="M7.5 105c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l151 151 151-151c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-151 151 151 151c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-151-151-151 151c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l151-151-151-151z" class=""></path></svg></span>
+       <ul>
+        <div class="logo-brand">
+<h1>ShopEase Store</h1>
+</div>
+         <li><a href="./index.html">Home</a></li>
+         <li><a href="./html/products.html">Products </a></li>
+         <li><a href="./html/mycart.html">My Cart </a></li>
+         <li><a href="./html/login.html">login </a></li>
+        <li><a href="./html/profile.html">Profile </a></li>
+       </ul>
+    </nav>
+    <div class="extra-screen">
 
+    </div>
+</div>
 
   <!-- This is Our Navbar -->
    <section class="navbar">
+    
 <header>
     <div class="logo-brand">
 <h1>ShopEase Store</h1>
@@ -29,6 +51,9 @@
         <li><a href="./html/profile.html">Profile </a></li>
        </ul>
     </nav>
+    <div class="toggle-icon">
+        <img src="./images/menu.png" alt="">
+    </div>
 </header>
 
    </section>
@@ -39,7 +64,7 @@
     <div class="img">
 <div class="hero-des">
     <h1 class="main-heading">Smart Appliances for <br>Smarter Living</h1>
-    <p class="main-para">"Discover the Future of Home Electronics — Experience <br> the perfect blend of powerful performance,and cutting-edge technology, <br>all crafted to enhance your modern lifestyle."</p>
+    <p class="main-para">"Discover the Future of Home Electronics — Experience the perfect <br>  blend of powerful performance,and cutting-edge technology, <br>all crafted to enhance your modern lifestyle."</p>
     <button class="hero-btn"><a href="#product">Explore Now</a></button>
 </div>
 
@@ -83,5 +108,7 @@
     </section>
 </section>
    
+   
+<script src="./js/sidebar.js"></script>
 </body>
 </html>

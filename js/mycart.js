@@ -93,7 +93,9 @@
         let getSavedDataId = fetchData();  // fetch data from local storage
         if (getSavedDataId == 0) {
           mainSection.innerHTML ='<h1 class="my-cart-error-msg">No Products in cart</h1>';
+          mainSection.classList.add('error')
         } else {
+          mainSection.classList.remove('error')
           myCartContainer.innerHTML = ""; // remove cart container
           let data = products.filter((item) => { // filter data for displying
             return getSavedDataId.includes(item.id);

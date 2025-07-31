@@ -7,125 +7,32 @@
   <link rel="stylesheet" href="../style/style.css">
 </head>
 <style>
-  .product-detail{
-    padding-inline: 10px;
 
-  }
-  .product-info-card {
-  max-width: 1000px;
-  width: 100%;
-  margin: 100px auto 20px;
-  display: flex;
-  gap: 20px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 70px;
-      box-shadow: 0px 0px 7px #0000007c;
-}
+  
 
-.img-container {
-  width: 300px;
-  height: 320px;
-  flex-grow: 1;
-}
-
-.img-container img {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  display: block;
-  /* object-position: center; */
-}
-
-.detail {
-    width: 400px;
-  height: 320px;
-  flex-grow: 1;
-  color: white;
-}
-
-.detail h3 {
-  font-size: 26px;
-  color: black;
-  margin-bottom: 10px;
-}
-
-.detail p {
-  font-size: 18px;
-  text-align: justify;
-  line-height: 1.6;
-  color: black;
-}
-
-.detail h4.price {
-  font-size: 24px;
-  margin-top: 20px;
-  color: rgba(0, 0, 0, 0.849);
-}
-.stars{
-  color: #ffd700 !important;
-}
-.detail .star-container {
-  font-size: 22px;
-  margin: 10px 0;
-}
-
-.go-to-cart {
-  padding: 12px 24px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background 0.3s ease;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.go-to-carthover {
-  background-color: rgba(0,0,0,0.95);
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .product-info-card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-.img-container{
-  width: 100%;
-}
-  .detail {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-
-  .detail {
-    text-align: center;
-  }
-
-  .go-to-cart {
-    width: 100%;
-  }
-}
-.copy-right{
-position: fixed;
-bottom: 0;
-width: 100%;
-
-}
 
 </style>
 <body>
+  <!-- mobile side bar -->
+<div class="side-bar">
+ 
+      <nav>
+           <span class="cross-icon"><svg data-prefix="far" data-icon="xmark" role="img" viewBox="0 0 384 512" aria-hidden="true" class="initial-icon svg-inline--fa fa-xmark fa-xl"><path fill="currentColor" d="M7.5 105c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l151 151 151-151c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-151 151 151 151c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-151-151-151 151c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l151-151-151-151z" class=""></path></svg></span>
+       <ul>
+        <div class="logo-brand">
+<h1>ShopEase Store</h1>
+</div>
+         <li><a href="../index.html">Home</a></li>
+         <li><a href="./products.html">Products </a></li>
+         <li><a href="./mycart.html">My Cart </a></li>
+         <li><a href="./login.html">login </a></li>
+        <li><a href="./profile.html">Profile </a></li>
+       </ul>
+    </nav>
+    <div class="extra-screen">
 
+    </div>
+</div>
      <!-- This is Our Navbar -->
    <section class="navbar">
 <header>
@@ -141,6 +48,10 @@ width: 100%;
         <li><a href="./profile.html">Profile </a></li>
        </ul>
     </nav>
+<div class="toggle-icon">
+        <img src="../images/menu.png" alt="">
+    </div>
+
 </header>
 
    </section>
@@ -160,6 +71,7 @@ width: 100%;
      </footer>
     </section>
 <script  src="../js/product-detail.js"></script>
+    <script src="../js/sidebar.js"></script>
 
 </body>
 </html>
