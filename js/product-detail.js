@@ -111,25 +111,22 @@ let productDetailContainer=document.querySelector('.product-detail');
 let getId= new URLSearchParams(window.location.search)
 
 if(getId.get('id')){
-let filterdData=products.filter(item=>item.id==getId.get('id'))
-filterdData.forEach(item=>{
+let data=products.find(item=>item.id==getId.get('id'));
+
 productDetailContainer.innerHTML=`
 <div class="product-info-card">
     <div class="img-container"> <!-- Fixed spelling here -->
-      <img src=${item.image} alt="">
+      <img src=${data.image} alt="">
     </div>
     <div class="detail">
-      <h3>${item.name}</h3>
-      <p>${item.detailDescription}</p>
-      <h4 class="price">${item.price}$/-</h4>
-      <h3 class="star-container"> <span class="stars">★★★★</span>&nbsp; ${item.rating}</h3>
+      <h3>${data.name}</h3>
+      <p>${data.detailDescription}</p>
+      <h4 class="price">${data.price}$/-</h4>
+      <h3 class="star-container"> <span class="stars">★★★★</span>&nbsp; ${data.rating}</h3>
       <button class="go-to-cart" onclick=" return window.location.href='./products.html'">Go To Cart</button>
     </div>
   </div>
-`
-    
-})
-    
+`   
 }else{
     productDetailContainer.innerHTML='<h1>Product Not Found </h1>'
 }

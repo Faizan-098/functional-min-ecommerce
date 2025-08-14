@@ -11,10 +11,16 @@
     e.preventDefault()
     if(username.value==='' || useremail.value==='' || userpassword.value===''){
       alert('Fill All The Field!')
+    }else if(userpassword.value.length < 8){
+      alert('minimum length should be 8')
     }else{
-      localStorage.setItem('username',username.value);
-      localStorage.setItem('useremail',useremail.value);
-      localStorage.setItem('userpassword',userpassword.value);
+   
+      let authentication={
+        name: username.value,
+        email: useremail.value,
+        password: userpassword.value,
+      }
+      localStorage.setItem('auth',JSON.stringify(authentication));
       username.value='';
       useremail.value='';
       userpassword.value='';

@@ -1,3 +1,5 @@
+
+
  const products = [
   {
     id:1,
@@ -5,6 +7,7 @@
     description: "Powerful electric meat mincer with stainless steel cutting blades.",
     rating: 4.5,
     price: 9999,
+    quantity:1,
     image: "../images/item13.png"
   },
   {
@@ -13,6 +16,7 @@
     description: "Fast-heating iron with powerful steam and non-stick soleplate.",
     rating: 4.5,
     price: 4999,
+      quantity:1,
     image: "../images/iron.png"
   },
   {
@@ -21,6 +25,7 @@
     description: "Oil-free cooking with digital temperature control and 4L capacity.",
     rating: 4.5,
     price: 12999,
+      quantity:1,
     image: "../images/item11.png"
   },
   {
@@ -29,6 +34,7 @@
     description: "3-in-1 appliance with multiple speed settings and stainless steel blade",
     rating: 4.5,
     price: 3499,
+      quantity:1,
     image: "../images/juicer.png"
   },
   {
@@ -37,6 +43,7 @@
     description: "Compact and stylish design, perfect for kitchen or living room",
     rating: 4.5,
     price: 12500,
+      quantity:1,
     image: "../images/item9.png"
   },
   {
@@ -45,6 +52,7 @@
     description: "3-in-1 appliance with multiple speed settings and stainless steel blades",
     rating: 4.5,
     price: 4299,
+      quantity:1,
     image: "../images/item12.png"
   },
   {
@@ -53,6 +61,7 @@
     description: "Quick toaster with adjustable browning levels and auto shut-off",
     rating: 4.5,
     price: 4999,
+      quantity:1,
     image: "../images/toaster.png"
   },
   {
@@ -61,13 +70,15 @@
     description: "Energy-efficient cooktop with digital touch panel and preset cooking",
     rating: 4.5,
     price: 6999,
+      quantity:1,
     image: "../images/item16.png"
   }
 ];
 
 
 // generate product
-let productContainer=document.querySelector('.product-container');
+let displayProducts=()=>{
+  let productContainer=document.querySelector('.product-container');
 products.forEach((item)=>{
   productContainer.innerHTML+=`
    <div class="card" id=${item.id}>
@@ -81,22 +92,33 @@ products.forEach((item)=>{
      <button id="addToCart" onclick="getAddToCartId(${item.id})"}>Add To Cart</button>
      <a href="./productDetailPage.html?id=${item.id}"><button id="addToCart" >View more</button></a>
 </div>
-
                .
 
             </div>
         </div>`
 })
+}
+displayProducts()
 
-// saved data to local storage
-let savedDataId=JSON.parse(localStorage.getItem('savedDataId'))?JSON.parse(localStorage.getItem('savedDataId')):[];
+// saved data to local storage or database
+let database=JSON.parse(localStorage.getItem('savedData')) || [];
+
 
 // get add to cart id
-
 function getAddToCartId(id){
-  alert('Product added to the cart')
-savedDataId.push(id)
-localStorage.setItem('savedDataId',JSON.stringify(savedDataId));
+let itemExistsInDatabase=database.find(item => item.id === id );
+if(itemExistsInDatabase){
+itemExistsInDatabase.quantity++;
+alert(`${itemExistsInDatabase.name} is added to cart`)
+}else{
+  let item=products.find(item => item.id ===id);
+  database=[...database,item]
+alert(`${item.name} is added to cart`)
+  
+}
+
+localStorage.setItem('savedData',JSON.stringify(database))
+
 
 }
 

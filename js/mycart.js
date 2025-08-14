@@ -84,35 +84,29 @@
 
       //  fetchdata
       function fetchData() {
-        return JSON.parse(localStorage.getItem("savedDataId"))
-          ? JSON.parse(localStorage.getItem("savedDataId"))
-          : [];
+        return JSON.parse(localStorage.getItem("savedData"))||[];
       }
       // display add to cart items
       function displayData() {
-        let getSavedDataId = fetchData();  // fetch data from local storage
-        if (getSavedDataId == 0) {
+        let getSavedData = fetchData();  // fetch data from local storage
+        if (getSavedData == 0) {
           mainSection.innerHTML ='<h1 class="my-cart-error-msg">No Products in cart</h1>';
           mainSection.classList.add('error')
         } else {
-          mainSection.classList.remove('error')
-          myCartContainer.innerHTML = ""; // remove cart container
-          let data = products.filter((item) => { // filter data for displying
-            return getSavedDataId.includes(item.id);
-          });
-
-          data.forEach((item) => { // display data
+          myCartContainer.innerHTML=''
+          getSavedData.forEach((item) => { // display data
             myCartContainer.innerHTML += `
       <div class="cart-item" id=${item.id}>
           <div class="cart-img">
             <img src=${item.image} alt="" />
           </div>
           <div class="cart-name">${item.name}</div>
+   <div class="cart-controller"><button onclick="decrement(${item.id})">-</button><span>${item.quantity}</span> <button onclick="increment(${item.id})">+</button></div>
           <div class="cart-price">${item.price}$</div>
           <div class="remove-cart" onclick="removeCart(${item.id})">Remove</div>
         </div>`;
           });
-          displaySummary(data); //display summary 
+          displaySummary(getSavedData); //display summary 
         }
     
         
@@ -121,36 +115,60 @@
 
       // remove cart function
       function removeCart(id) {
-        let getSavedDataId = fetchData();
-        let data = getSavedDataId.filter((item) => {
-          return item !== id;
+        let getSavedData = fetchData();
+        let updatedData = getSavedData.filter((item) => {
+          return item.id !== id;
         });
-        console.log(data);
-
-        localStorage.setItem("savedDataId", JSON.stringify(data));
+        localStorage.setItem("savedData", JSON.stringify(updatedData));
 
         displayData();
       }
 
       // summary function
-      function displaySummary(data) {
+      function displaySummary(getSavedData) {
+     
      summaryBag.innerHTML = `
  <h2>Selected Offer Summary</h2>
-   <div class="sub-total">Quantity :  &nbsp<span>${data.length}</span></div>
-        <div class="sub-total">Sub Total :  &nbsp<span>${totalFun(data).toFixed(2)}$</span></div>
+   <div class="sub-total">Quantity :  &nbsp<span>${countQuantity(getSavedData)}</span></div>
+        <div class="sub-total">Sub Total :  &nbsp<span>${totalFun(getSavedData).toFixed(2)}$</span></div>
         <div class="tax">Tax (5%) : <span> &nbsp 5.0$</span></div>
-        <div class="final-amount">Final Amount : <span> &nbsp${totalFun(data)-(totalFun(data)*5/100).toFixed(2)}$</span></div>
+        <div class="final-amount">Final Amount : <span> &nbsp${Number(totalFun(getSavedData)) + Number((totalFun(getSavedData)*5/100).toFixed(2))}$</span></div>
         <div class="checkout-btn" onclick=" checkout()">Checkout</div>
 `;
       }
 
       //  total
-      function totalFun(data) {
-return data.reduce((prev,curr)=> prev + curr.price,0)
+      function totalFun(data) { 
+      return data.reduce((prev,curr)=> prev + (curr.price * curr.quantity),0)
       }
-    
+ 
       // Checkout
       function checkout(){
         window.location.href='./checkout.html'
       }
+
+      // count quantity
+      function countQuantity(data){
+          return data.reduce((prev,curr)=> prev+curr.quantity,0);
+      
+      }
     
+
+      // Decrement Quantity
+      function decrement(id){
+          let data=fetchData();
+          let obj=data.find(item => item.id === id)
+          if(obj.quantity>1){
+            obj.quantity--;
+          }
+          localStorage.setItem('savedData',JSON.stringify(data))
+          displayData()
+      }
+       // Increment Quantity
+      function increment(id){
+          let data=fetchData();
+          let obj=data.find(item => item.id === id)
+          obj.quantity++;
+          localStorage.setItem('savedData',JSON.stringify(data))
+          displayData()
+      }
